@@ -1,18 +1,12 @@
 import { useState } from "react";
-import Button from "./components/Button";
 import Card from "./components/Card";
 import Container from "./components/Container";
-import Input from "./components/Input";
-import useFormulario from "./hooks/useFormulario";
+import UserForm from "./components/UserForm";
 
 function App() {
   const [usuarios, setUsuario] = useState([]);
   // custom hook
-  const [formulario, handleChange, reset] = useFormulario({
-    name: "",
-    lastname: "",
-    email: "",
-  });
+  
 
   const quitarUsuario = (keyU) => {
     console.log(keyU, usuarios);
@@ -20,47 +14,16 @@ function App() {
     setUsuario(newUsuarios);
   };
 
-  const submit = (e) => {
-    e.preventDefault();
-    setUsuario([...usuarios, formulario]);
-    reset();
+  const submit = (usuario) => {
+    setUsuario([...usuarios, usuario]);
   };
 
-  // console.log(usuarios)
+  console.log(usuarios)
   return (
     <div className="font-Montserrat h-screen flex flex-col justify-center items-center bg-stone-300">
       <Container>
         <Card>
-          <form onSubmit={submit}>
-            <Input
-              label="Nombre de Usuario"
-              type="text"
-              name="name"
-              placeholder="Nombre"
-              value={formulario.name}
-              onChange={handleChange}
-            />
-
-            <Input
-              label="Apellido de Usuario"
-              type="text"
-              name="lastname"
-              placeholder="Apellido"
-              value={formulario.lastname}
-              onChange={handleChange}
-            />
-
-            <Input
-              label="Correo Electrónico"
-              type="text"
-              name="email"
-              placeholder="Correo"
-              value={formulario.email}
-              onChange={handleChange}
-            />
-
-            <Button>Enviar</Button>
-          </form>
+          <UserForm submit={submit} />
         </Card>
         {usuarios.length ? (
           <Card>
