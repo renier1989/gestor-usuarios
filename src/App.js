@@ -1,3 +1,4 @@
+import Button from "./components/Button";
 import Card from "./components/Card";
 import Container from "./components/Container";
 import Input from "./components/Input";
@@ -8,6 +9,7 @@ function App() {
   const [formulario, handleChange] = useFormulario({
     name: "",
     lastname: "",
+    email: "",
   });
 
   return (
@@ -32,6 +34,17 @@ function App() {
               value={formulario.lastname}
               onChange={handleChange}
             />
+
+            <Input
+              label="Correo Electrónico"
+              type="text"
+              name="email"
+              placeholder="Correo"
+              value={formulario.email}
+              onChange={handleChange}
+            />
+
+            <Button >Enviar</Button>
           </form>
         </Card>
       </Container>
