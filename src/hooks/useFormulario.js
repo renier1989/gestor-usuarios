@@ -9,7 +9,11 @@ function useFormulario(initial) {
     });
   };
 
-  return [formulario, handleChange];
+  const reset = ()=>{
+    setFormulario(initial);
+  }
+
+  return [formulario, handleChange, reset];
 }
 
 export default useFormulario;
