@@ -1,4 +1,5 @@
 import Card from "./components/Card";
+import Container from "./components/Container";
 import Input from "./components/Input";
 import useFormulario from "./hooks/useFormulario";
 
@@ -11,27 +12,29 @@ function App() {
 
   return (
     <div className="h-screen bg-stone-300">
-      <Card>
-        <form>
-          <Input
-            label="Nombre de Usuario"
-            type="text"
-            name="name"
-            placeholder="Nombre"
-            value={formulario.name}
-            onChange={handleChange}
-          />
+      <Container>
+        <Card>
+          <form>
+            <Input
+              label="Nombre de Usuario"
+              type="text"
+              name="name"
+              placeholder="Nombre"
+              value={formulario.name}
+              onChange={handleChange}
+            />
 
-          <Input
-            label="Apellido de Usuario"
-            type="text"
-            name="lastname"
-            placeholder="Apellido"
-            value={formulario.lastname}
-            onChange={handleChange}
-          />
-        </form>
-      </Card>
+            <Input
+              label="Apellido de Usuario"
+              type="text"
+              name="lastname"
+              placeholder="Apellido"
+              value={formulario.lastname}
+              onChange={handleChange}
+            />
+          </form>
+        </Card>
+      </Container>
     </div>
   );
 }
