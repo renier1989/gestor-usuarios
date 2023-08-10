@@ -15,10 +15,10 @@ function App() {
   });
 
   const quitarUsuario = (keyU) => {
-    console.log(keyU, usuarios)
-    const newUsuarios = usuarios.filter((_,i)=> i !== keyU);
+    console.log(keyU, usuarios);
+    const newUsuarios = usuarios.filter((_, i) => i !== keyU);
     setUsuario(newUsuarios);
-  }
+  };
 
   const submit = (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ function App() {
 
   // console.log(usuarios)
   return (
-    <div className="h-screen bg-stone-300">
+    <div className="font-Montserrat h-screen flex flex-col justify-center items-center bg-stone-300">
       <Container>
         <Card>
           <form onSubmit={submit}>
@@ -67,7 +67,12 @@ function App() {
             <ul className="flex flex-col gap-4">
               {usuarios.map((usuario, index) => (
                 <li key={index} className="text-lg font-semibold">
-                  <span onClick={()=>quitarUsuario(index)} className="cursor-pointer hover:text-lg">❌</span>{" "}
+                  <span
+                    onClick={() => quitarUsuario(index)}
+                    className="cursor-pointer hover:text-lg"
+                  >
+                    ❌
+                  </span>{" "}
                   {`${usuario.name}`} {`${usuario.lastname}`} /{" "}
                   {`${usuario.email}`}
                 </li>
